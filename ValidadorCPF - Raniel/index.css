@@ -1,0 +1,87 @@
+* { box-sizing: border-box; border: 0; padding: 0; }
+html { font: 16px verdana, sans-serif; }
+
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 95vh;
+   background-color: #16161D;   
+}
+
+.app, .app form {
+   display: flex;
+   color: #1D2323;
+   flex-direction: column;
+   align-items: center;
+}
+
+.app {   
+   width: 24rem;
+   height: 26.25rem;
+   background-color: #F7F7F7;
+   padding: 32px 20px;
+   border-radius: 8px;
+}
+
+.app form {
+   margin-top: 32px;
+}
+
+.app form > label {
+   font-size: 1.279rem;
+   margin-bottom: 8px;
+   align-self: flex-start;
+}
+
+.app form > input {
+   border: 1px solid gray;
+   padding: 16px;
+   width: 100%;
+   border-radius: 8px;
+   font-size: 1rem;
+   outline: none;
+}
+
+.app form > input:focus {
+   background-color: lightgray;
+}
+
+.app form > .botoes {
+   margin: 2rem 0 3rem;
+}
+
+.app form > .botoes button {
+   margin: 0 .5rem;
+   padding: 10px 36px;
+   font-size: 1.1rem;
+   border-radius: 8px;
+}
+
+.app form > .botoes button[type="submit"] {
+   background-color: #16161D;
+   color: #F7F7F7;
+}
+
+.app form > .botoes button[type="reset"] {
+   background-color: transparent;
+   border: .5px solid lightgray;
+}
+
+.valido, .invalido {
+   font-weight: bold; 
+   width: max-content;
+   padding: 10px 30px;   
+   border-radius: 30px;
+   text-align: center;
+}
+
+.valido {   
+   background-color: #17C496;
+   color: #E7FEF7;
+}
+
+.invalido {   
+   background-color: #E32640;
+   color: #FFF;
+}
