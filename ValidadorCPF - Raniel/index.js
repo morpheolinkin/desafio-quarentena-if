@@ -1,14 +1,9 @@
 /* ------------ VALIDAÇÕES ------------ */
-const verificarPrimeiroDigito = (cpf) => {   
-   let soma = cpf.reduce((total, digito, index) => total + (parseInt(digito) * (index + 2)), 0);
-   
-   let resto = Math.floor(soma % 11);
-   
-   return resto < 2 ? 0 : 11 - resto;
-}
-
-const verificarSegundoDigito = (cpf, primeiroDigito) => {
-   cpf.unshift(primeiroDigito);
+const verificarDigitos = (cpf, primeiroDigito) => {
+   if (primeiroDigito)
+   {
+   	cpf.unshift(primeiroDigito);
+   }
    
    let soma = cpf.reduce((total, digito, index) => total + (parseInt(digito) * (index + 2)), 0);
    
@@ -21,8 +16,8 @@ const validarCPF = (cpf) => {
    let cpfNumber = cpf.replace(/\D+/g, '');
    let cpfSplit = cpfNumber.split('', 9).reverse();
 
-   let primeiroDigito = verificarPrimeiroDigito(cpfSplit);   
-   let segundoDigito = verificarSegundoDigito(cpfSplit, primeiroDigito);
+   let primeiroDigito = verificarDigitos(cpfSplit);   
+   let segundoDigito = verificarDigitos(cpfSplit, primeiroDigito);
    
    if (primeiroDigito === parseInt(cpfNumber[9])) {
       if (segundoDigito === parseInt(cpfNumber[10]))
