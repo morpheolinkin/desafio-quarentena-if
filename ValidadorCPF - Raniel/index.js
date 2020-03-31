@@ -1,9 +1,7 @@
 /* ------------ VALIDAÇÕES ------------ */
 const verificarDigitos = (cpf, primeiroDigito) => {
-   if (primeiroDigito)
-   {
-   	cpf.unshift(primeiroDigito);
-   }
+   
+   if (primeiroDigito) { cpf.unshift(primeiroDigito); }
    
    let soma = cpf.reduce((total, digito, index) => total + (parseInt(digito) * (index + 2)), 0);
    
