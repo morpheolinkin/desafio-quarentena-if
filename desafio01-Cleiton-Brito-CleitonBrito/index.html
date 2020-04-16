@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Validador CPF e CNPJ</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="rectangle">
+  		<button class="btn_back">Voltar</button>
+  		<div id="home" class="content">
+      		<p class="title">Validador CPF e CNPJ</p>
+      		<button id="btn_cpf">Validação CPF</button>
+      		<button id="btn_cnpj">Validação CNPJ</button>
+   		</div>
+   		<div id="validateCPF" class="content">
+       		<p class="title">Valida CPF</p>
+       		<input type="text" id="input_cpf" size="37" maxlength="14" placeholder="Ex.: 123.456.789-00 ou 12345678900" required>
+       		<p class="msg_pointer">Com ou sem pontos.</p>
+       		<button id="clear_cpf" class="btn_clear">Limpar</button>
+       		<button id="verifyCPF" class="btn_verify">Consultar</button>
+   		</div>
+   		<div id="validateCNPJ" class="content">
+     		<p class="title">Valida CNPJ</p>
+     		<input type="text" id="input_cnpj" size="37" maxlength="18" placeholder="Ex.: 12.345.6789/0001-22 ou 123456789000122" required>
+     		<p class="msg_pointer">Com ou sem pontos.</p>
+     		<button id="clear_cnpj" class="btn_clear">Limpar</button>
+     		<button id="verifyCNPJ" class="btn_verify">Consultar</button>
+   		</div>
+	</div>
+	<div id="msg_alert">
+  		<p id="msg"></p>
+	</div>
+
+	<script src="index.js"></script>
+</body>
+</html>
