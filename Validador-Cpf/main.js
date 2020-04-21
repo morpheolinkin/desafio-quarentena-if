@@ -1,11 +1,17 @@
-var cpf = "069.004.715-01";
-var cpfArray = [];
+var verificarArray = [];
 
-function cpfValidador() {
-    if (cpf.length == 14) {
-        cpfArray.push(tirarCarateres(cpf));
-        digitoVerificador(cpfArray);
-    }
+async function cpfValidador() {
+
+    let users = await (await fetch('./data.json')).json();
+
+    users.forEach(user => {
+
+        if (user.cpf.length === 14)
+            verificarArray.push({ nome: user.nome, cpf: tirarCarateres(user.cpf) });
+
+    });
+
+    digitoVerificador(verificarArray);
 }
 
 function tirarCarateres(cpf) {
@@ -13,26 +19,32 @@ function tirarCarateres(cpf) {
     return cpfNew;
 }
 
-function digitoVerificador(cpfArray) {
+function digitoVerificador(verificarArray) {
 
-    for (let i = 0; i < cpfArray.length; i++) {
-        let cpfVer = cpfArray[i].split('');
-        cpfVer = convertParaInteiro(cpfVer);
+    for (let i = 0; i < verificarArray.length; i++) {
+        let cpfNumerico = verificarArray[i].cpf.split('');
+        verificarArray[i].cpf =  convertParaInteiro(cpfNumerico);
+        
+        if (verificarIqualdade(verificarArray[i].cpf)) {
 
-        if(verificarIqualdade(cpfVer)){
-            if(contaVerificar(10, 2, 9, cpfVer)){
-                if(contaVerificar(11, 1, 10, cpfVer)){
-                    console.log('EBA!!!');
+            if(contaVerificar(10, 2, 9, verificarArray[i].cpf)){
+
+                if(contaVerificar(11, 1, 10, verificarArray[i].cpf)){
+                    console.log(`${verificarArray[i].nome}: CPF Correto!`);
                 }else{
-                    console.log('segundo digito de verificação errado');
+                    console.log(`${verificarArray[i].nome}: Segundo digito de verificação errado`);
                 }
+
             }else{
-                console.log('primeiro digito de verificação errado');
+                console.log(`${verificarArray[i].nome}: Primeiro digito de verificação errado`);
             }
-        }else{
-            console.log('Invalido por numeros iguais, EX: 111.111.111-11');
+
+        } else {
+            console.log(`${verificarArray[i].nome}: CPF invalido por úumeros iguais, EX: 111.111.111-11`);
         }
+
     }
+
 }
 
 function convertParaInteiro(cpfConverter){
@@ -42,42 +54,44 @@ function convertParaInteiro(cpfConverter){
     return cpfConverter;
 }
 
-function verificarIqualdade(cpfVer){
+function verificarIqualdade(cpfVer) {
     let soma = 0;
     let prosseguir = 0;
+    
 
     for (let i = 0; i < cpfVer.length; i++) {
         soma += cpfVer[i];
     }
-    resultado = (soma/11);
+
+    let resultado = (soma / 11);
 
     for (let i = 0; i < cpfVer.length; i++) {
-        if(cpfVer[i] == resultado){
+        if (cpfVer[i] == resultado) {
             prosseguir += 1;
         }
     }
 
-    if(prosseguir == 11){
+    if (prosseguir === 11) {
         return false;
-    }else{
+    } else {
         return true;
     }
 }
 
-function contaVerificar(valorMultiplicar, digitoCorecao, posicao, cpfVer){
+function contaVerificar(valorMultiplicar, digitoCorecao, posicao, cpfVer) {
     let soma = 0;
     let resto = 0;
 
-    for (let i = 0; i < cpfVer.length-digitoCorecao; i++) {
-            soma += cpfVer[i] * valorMultiplicar;
-            valorMultiplicar--;
+    for (let i = 0; i < cpfVer.length - digitoCorecao; i++) {
+        soma += cpfVer[i] * valorMultiplicar;
+        valorMultiplicar--;
     }
 
     resto = (soma * 10) % 11
 
     if (cpfVer[posicao] == resto || cpfVer[posicao] == 0 && resto == 10 || cpfVer[posicao] == 0 && resto == 11) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
