@@ -1,8 +1,8 @@
-<h1 aling="center">Desafio Quarentena IF</h1>
+<h1 align="center">Desafio Quarentena IF</h1>
 
 A ideia é fazer push dos desafios, tem que enviar PULL REQUEST.
 
-O push deve seguir a seguinte nomenclatura.
+O push deve seguir a seguinte nomenclatura:
 
 #### MODELO: *desafio - primeiro nome - segundo nome - usuário github*
 
