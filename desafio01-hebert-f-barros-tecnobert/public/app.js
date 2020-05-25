@@ -1,0 +1,10 @@
+cpf-validation.surge.sh/
+  ├─200.html
+  ├─404.html
+  ├─index.html
+  ├─sobre.html
+  ├─downloads.html
+  ├─consulta.html&ref=home
+  ├─consulta.html&cpf_valido=false
+  ├─consulta.html&cpf_valido=true
+  └─app.js
