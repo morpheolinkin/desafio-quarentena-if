@@ -1,0 +1,16 @@
+{
+  "app": {
+    "NAME": "Consulta CPF"
+  },
+  "urls": {
+    "routes": ["/", "/sobre.html", "/downloads.html", "/consulta.html&", "cpf_valido=","/home.html"],
+    "external": [
+      "https://material-ui.com/pt/getting-started/installation/",
+      "https://github.com/tecnobert/cpf-validation",
+      "https://undraw.co/",
+      "https://material-ui.com/pt/components/icons/",
+      "https://unsplash.com/documentation#getting-started",
+      "https://github.com/tecnobert/cpf-validator"
+    ]
+  }
+}

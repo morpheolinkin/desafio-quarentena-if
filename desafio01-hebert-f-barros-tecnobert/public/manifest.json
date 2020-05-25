@@ -1,0 +1,29 @@
+{
+  "name": "Consulta CPF",
+  "short_name": "Consulta CPF",
+  "start_url": ".",
+  "display": "minimal-ui",
+  "background_color": "#ffffffab",
+  "theme_color": "#ffffffab",
+  "description": "Validação de CPF",
+  "orientation": "portrait-primary",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon": "/favicon.ico"
+  },
+  "manifest_version": 2,
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/assets/img/logo192.svg",
+      "sizes": "192x192",
+      "type": "vetor/svg"
+    },
+    {
+      "src": "/assets/img/logo512.svg",
+      "sizes": "512x512",
+      "type": "vetor/svg"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+BROWSER=brave react-scripts start
